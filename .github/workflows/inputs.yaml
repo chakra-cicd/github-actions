@@ -1,44 +1,47 @@
-name: Input Example
+## Name of the workflow?
+name: inputs
 
-on:
-  workflow_dispatch:
-    inputs:
+## How to tigger?
+on: 
+  workflow_dispatch:  # Says to trigger manually passing inputs 2be defined
+   inputs:
+     name:
+      type: string
+      default: "Chakradhar"
+      required: true
+      description: "enter your name"
+     
+     environment:
+      type: environment
+      required: true
+      description: "select environment"
 
-      name:
-        description: "Enter your name"
-        required: true
-        default: "Chakradhar"
-        type: string
-
-      environment:
-        description: "Select environment"
-        required: true
-        type: environment
-
-      version:
-        description: "Select version"
-        required: true
-        default: "v1"
-        type: choice
-        options:
-          - v1
-          - v2
-          - v3
+     version:
+      type: choice
+      required: true
+      description: "select version"
+      default: v1
+      options: 
+      - v1
+      - v2
+      - v3
 
       deploy:
-        description: "Do you want to deploy?"
-        required: true
-        default: false
-        type: boolean
+       description: "do you want to deploy"
+       type: boolean
+       required: true
+       default: false
 
-jobs:
-  hello:
-    runs-on: ubuntu-latest
+## defines jobs to run
+jobs: 
+  inputs:   # name of the job
+   runs-on: ubuntu-latest
 
-    steps:
-      - name: Display inputs
-        run: |
-          echo "Name: ${{ inputs.name }}"
-          echo "Environment: ${{ inputs.environment }}"
-          echo "Version: ${{ inputs.version }}"
-          echo "Deploy: ${{ inputs.deploy }}"
+   # define steps to execute
+   steps:
+   - name: display inputs
+     run: |
+       echo "name: ${{ inputs.name }}"
+       echo "environment: ${{ inputs.environment }}"  
+       echo "version: ${{ inputs.version }}"
+       echo "Deploy: ${{inputs.deploy }}"
