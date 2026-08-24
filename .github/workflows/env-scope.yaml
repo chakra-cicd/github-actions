@@ -1,0 +1,34 @@
+name: Environment Variables
+# scope: worflow -> job -> step
+# priority: step -> job -> workflow
+on: [workflow_dispatch]  
+
+env:
+  APP_NAME: "MyApp"
+  ENVIRONMENT: "DEV"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      JOB_NAME: "TestJob"
+      ENVIRONMENT: "TEST"
+
+    steps:
+      - name: Step 1
+        env:
+          STEP_NAME: "Step1"
+          ENVIRONMENT: "PROD"
+
+        run: |
+          echo "APP_NAME=$APP_NAME"
+          echo "ENVIRONMENT=$ENVIRONMENT"
+          echo "JOB_NAME=$JOB_NAME"
+          echo "STEP_NAME=$STEP_NAME"
+
+      - name: Step 2
+        run: |
+          echo "APP_NAME=$APP_NAME"
+          echo "ENVIRONMENT=$ENVIRONMENT"
+          echo "JOB_NAME=$JOB_NAME"
