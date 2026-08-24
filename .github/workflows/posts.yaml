@@ -1,0 +1,26 @@
+name: post build
+on: [ workflow-dispatch ]
+
+jobs:
+ post:
+  runs-on: ubuntu-latest
+
+  steps:
+  - name: status conditions
+    run: exit 1
+
+  - name: Success
+    if: ${{ success() }}
+    run: echo "Previous steps succeeded"
+
+  - name: Failure
+    if: ${{ failure() }}
+    run: echo "A previous step failed"
+
+  - name: Always
+    if: ${{ always() }}
+    run: echo "Run regardless of result"
+
+  - name: Cancelled
+    if: ${{ cancelled() }}
+    run: echo "Workflow was cancelled"
