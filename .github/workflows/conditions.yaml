@@ -6,7 +6,7 @@ jobs:    #stages
    runs-on: ubuntu-latest  #agent name
    steps:   #steps in jenkins inside stage (list of map)
    - name: deploy
-     if: github.ref == 'refs/heads/main'
+     if: github.ref != 'refs/heads/main'
      run: echo "deploy"
   
    - name: UAT
