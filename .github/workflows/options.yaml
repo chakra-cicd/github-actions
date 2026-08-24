@@ -1,13 +1,13 @@
 # name of the workflow
 name: options
 # tigger mechanisum
-on: [push]
+on: [workflow-dispatch]
 
 #In workflow, to prevent concurrent triggers we use groups
 concurrency:
  group: ${{ github.repository }}-$${{ github.ref }}
  cancel-in-progress: true
- 
+
 #what to run?
 jobs:
   options:  #name of the job
