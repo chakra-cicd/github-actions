@@ -26,7 +26,7 @@ on:
       - v2
       - v3
 
-      deploy:
+     deploy:
        description: "do you want to deploy"
        type: boolean
        required: true
