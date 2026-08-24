@@ -1,7 +1,7 @@
 # name of the workflow
 name: options
 # tigger mechanisum
-on: [workflow-dispatch]
+on: [workflow_dispatch]
 
 #In workflow, to prevent concurrent triggers we use groups
 concurrency:
