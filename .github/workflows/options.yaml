@@ -2,6 +2,10 @@ name: Timeout Example
 
 on: [workflow_dispatch]
 
+concurrency:
+  group: ${{ github.repository }}-$${ github.ref}
+  cancel-in-progress: false  # If false, new job will wait, if true, old job is killed and new job gets triggered.
+
 jobs:
   hello:
     runs-on: ubuntu-latest
