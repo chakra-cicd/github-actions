@@ -1,5 +1,11 @@
 name: dependency
 on: [workflow_dispatch]
+ inputs:
+   deploy:
+    description: 'do you want to deploy'
+    required: true
+    default: false
+    type: boolean
 
 jobs:
  job-1:
@@ -9,6 +15,7 @@ jobs:
     run: echo "chakradhar"
  job-2:
   needs: job-1
+  if: inputs.deploy
   runs-on: ubuntu-latest
   steps:
   - name: print myname
