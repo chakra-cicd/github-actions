@@ -1,13 +1,18 @@
-name: hello pipeline  #workflow name
-on:  # Event
-# on: [ push ]
- push:
-  branches: [ main ]
+name: hello workflow  # name of the workflow
+on: [ push ] #event
 
-jobs:  #Workflow can have multiple jobs
-  hello:  # job name
-   runs-on: ubuntu-latest  #agents
+jobs: #stages. workflow can have multiple stages
+  hello:  #name of the job/stage
+   runs-on: ubuntu-latest  #Runner to execute the job/stage
 
-   steps:
+   steps:  
    - name: say hello
-     run: echo "Hello world"
+     run: echo "hell,world"
+
+
+jobs: #stages
+ bolo:
+  runs-on: ubuntu-latest
+  steps:
+  - name: chakra
+    run: echo "hello chakra"
