@@ -9,6 +9,7 @@ jobs:
       run: echo "deploy jobs-1"
   
  jobs-2:
+  needs: jobs-1
   runs-on: ubuntu-latest
   steps:
     - name: deploy
@@ -21,6 +22,7 @@ jobs:
       run: echo "deploy jobs-3"
 
  jobs-4:
+  needs: jobs-3
   runs-on: ubuntu-latest
   steps:
     - name: deploy
