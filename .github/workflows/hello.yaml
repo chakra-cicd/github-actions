@@ -1,7 +1,7 @@
 name: hello workflow  # name of the workflow
 on: [ push ] #event
 
-jobs: #stages. workflow can have multiple stages
+jobs: #stages. workflow can have multiple stage
   hello:  #name of the job/stage
    runs-on: ubuntu-latest  #Runner to execute the job/stage
 
@@ -9,10 +9,8 @@ jobs: #stages. workflow can have multiple stages
    - name: say hello
      run: echo "hell,world"
 
-
-jobs: #stages
- bolo:
-  runs-on: ubuntu-latest
-  steps:
-  - name: chakra
-    run: echo "hello chakra"
+  bolo:
+   runs-on: ubuntu-latest
+   steps:
+   - name: chakra
+     run: echo "hello chakra"
