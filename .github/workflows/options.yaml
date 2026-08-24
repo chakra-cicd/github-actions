@@ -1,0 +1,12 @@
+name: Timeout Example
+
+on: [workflow_dispatch]
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+
+    steps:
+      - name: Hello
+        run: sleep 6000
