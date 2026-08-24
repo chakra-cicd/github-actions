@@ -1,12 +1,12 @@
-name: hello pipeline
-on:
+name: hello pipeline  #workflow name
+on:  # Event
+# on: [ push ]
  push:
-  branches:
-  - main
+  branches: [ main ]
 
-jobs:
-  hello:
-   runs-on: ubuntu:latest
+jobs:  #Workflow can have multiple jobs
+  hello:  # job name
+   runs-on: ubuntu-latest  #agents
 
    steps:
    - name: say hello
