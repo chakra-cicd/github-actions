@@ -50,3 +50,5 @@ jobs:
 
       - name: Print all environment variables
         run: env | sort
+
+      - run: echo "${{ env.MY_VARS }}"
