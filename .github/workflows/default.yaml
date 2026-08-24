@@ -1,0 +1,52 @@
+name: Print Contexts
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Enter your name"
+        required: true
+        default: "Chakradhar"
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      MY_VAR: "Hello"
+
+    steps:
+      - name: Print contexts
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+          ENV_CONTEXT: ${{ toJSON(env) }}
+          INPUTS_CONTEXT: ${{ toJSON(inputs) }}
+          VARS_CONTEXT: ${{ toJSON(vars) }}
+          RUNNER_CONTEXT: ${{ toJSON(runner) }}
+          JOB_CONTEXT: ${{ toJSON(job) }}
+          STEPS_CONTEXT: ${{ toJSON(steps) }}
+        run: |
+          echo "===== GITHUB ====="
+          echo "$GITHUB_CONTEXT"
+
+          echo "===== ENV ====="
+          echo "$ENV_CONTEXT"
+
+          echo "===== INPUTS ====="
+          echo "$INPUTS_CONTEXT"
+
+          echo "===== VARS ====="
+          echo "$VARS_CONTEXT"
+
+          echo "===== RUNNER ====="
+          echo "$RUNNER_CONTEXT"
+
+          echo "===== JOB ====="
+          echo "$JOB_CONTEXT"
+
+          echo "===== STEPS ====="
+          echo "$STEPS_CONTEXT"
+
+      - name: Print all environment variables
+        run: env | sort
