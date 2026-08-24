@@ -1,0 +1,44 @@
+name: Input Example
+
+on:
+  workflow_dispatch:
+    inputs:
+
+      name:
+        description: "Enter your name"
+        required: true
+        default: "Chakradhar"
+        type: string
+
+      environment:
+        description: "Select environment"
+        required: true
+        type: environment
+
+      version:
+        description: "Select version"
+        required: true
+        default: "v1"
+        type: choice
+        options:
+          - v1
+          - v2
+          - v3
+
+      deploy:
+        description: "Do you want to deploy?"
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display inputs
+        run: |
+          echo "Name: ${{ inputs.name }}"
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Version: ${{ inputs.version }}"
+          echo "Deploy: ${{ inputs.deploy }}"
