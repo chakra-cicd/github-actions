@@ -7,7 +7,7 @@ on: [push]
 jobs:
   options:  #name of the job
   # where the job should run?
-   runs-on: ubuntu latest
+   runs-on: ubuntu-latest
    timeout-minutes: 1   # timeout is set for the whole job, like whole pipeline in jenkins
    # we can set step level in jenkins and workflow
 

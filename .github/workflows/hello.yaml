@@ -1,5 +1,5 @@
 name: hello workflow  # name of the workflow
-on: [ push ] #event
+on: [ workflow_dispatch ] #event
 
 jobs: #stages. workflow can have multiple stage
   hello:  #name of the job/stage
