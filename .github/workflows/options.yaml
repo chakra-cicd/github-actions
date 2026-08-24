@@ -1,16 +1,16 @@
-name: Options
+# name of the workflow
+name: options
+# tigger mechanisum
+on: [push]
 
-on: [workflow_dispatch]
-
-concurrency:
-  group: ${{ github.repository }}-$${ github.ref}
-  cancel-in-progress: true  # If false, new job will wait, if true, old job is killed and new job gets triggered.
-
+#what to run?
 jobs:
-  hello:
-    runs-on: ubuntu-latest
-    timeout-minutes: 1
+  options:  #name of the job
+  # where the job should run?
+   runs-on: ubuntu latest
+   timeout-minutes: 1   # timeout is set for the whole job, like whole pipeline in jenkins
+   # we can set step level in jenkins and workflow
 
-    steps:
-      - name: Hello
-        run: sleep 6000
+   steps: # Tasks to be executed, its a list object
+   - name: sleep
+     run: sleep 1000
