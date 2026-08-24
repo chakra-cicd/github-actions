@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 concurrency:
   group: ${{ github.repository }}-$${ github.ref}
-  cancel-in-progress: ture  # If false, new job will wait, if true, old job is killed and new job gets triggered.
+  cancel-in-progress: true  # If false, new job will wait, if true, old job is killed and new job gets triggered.
 
 jobs:
   hello:
