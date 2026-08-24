@@ -1,6 +1,7 @@
 name: dependency
-on: [workflow_dispatch]
- inputs:
+on: 
+ workflow_dispatch:
+  inputs:
    deploy:
     description: 'do you want to deploy'
     required: true
