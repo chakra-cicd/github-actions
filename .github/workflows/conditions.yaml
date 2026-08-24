@@ -1,4 +1,4 @@
-name: hello
+name: conditions
 on: [ workflow_dispatch ]
 jobs:
   test:

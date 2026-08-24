@@ -1,4 +1,4 @@
-name: Timeout Example
+name: Options
 
 on: [workflow_dispatch]
 
