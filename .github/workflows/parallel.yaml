@@ -1,29 +1,25 @@
-name: parallel-default
-on: [ workflow_dispatch ]
+name: dependency
+on: [workflow_dispatch]
 
 jobs:
- jobs-1:
+ job-1:
   runs-on: ubuntu-latest
   steps:
-    - name: deploy
-      run: echo "deploy jobs-1"
-  
- jobs-2:
-  needs: jobs-1
+  - name: print myname
+    run: echo "chakradhar"
+ job-2:
   runs-on: ubuntu-latest
   steps:
-    - name: deploy
-      run: echo "deploy jobs-2"
-
- jobs-3:
+  - name: print myname
+    run: echo "chakradhar"
+ job-3:
   runs-on: ubuntu-latest
   steps:
-    - name: deploy
-      run: echo "deploy jobs-3"
-
- jobs-4:
-  needs: jobs-3
+  - name: print myname
+    run: echo "chakradhar"
+ job-4:
   runs-on: ubuntu-latest
   steps:
-    - name: deploy
-      run: echo "deploy jobs-4"
+  - name: print myname
+    run: echo "chakradhar"
+    
