@@ -9,17 +9,17 @@ jobs:
     run: exit 1
   
   - name: success
-    if: {{ success() }}
+    if: ${{ success() }}
     run: echo "Previous step was successful"
   
   - name: failure
-    if: {{ failure() }}
+    if: ${{ failure() }}
     run: echo " Previous step failed"
 
   - name: always
-    if: {{ always() }}
+    if: ${{ always() }}
     run: echo "run regardless of result"
 
   - name: cancelled
-    if: {{ cancelled() }}
+    if: ${{ cancelled() }}
     run: echo "Previous step was cancelled"
